@@ -25,13 +25,13 @@ The following have been used on this project:
 - CSS
 - Bootstrap
 - Angular
-<!-- 
-## Screenshots Of the Figma Design
+
+<!-- ## Screenshots Of the Figma Design -->
 
 - Homepage
 
   <img src="./screenshots/Homepage.png" alt="screenshot" />
-
+<!-- 
 - Job Details
 
   <img src="./screenshots/Job Details.png" alt="screenshot" />

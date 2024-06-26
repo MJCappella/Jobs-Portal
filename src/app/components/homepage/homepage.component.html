@@ -1,0 +1,121 @@
+<section class="homepage">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="intro">
+        <h1>
+          Find A <span class="main-color">Job</span> That <br>
+          <span class="main-color">Matches</span><br> Your Passion
+        </h1>
+        <p class="mt-4">
+          Hand-picked opportunities to work from home, remotely, freelance, <br>full-time, part-time, contract and
+          internships.
+        </p>
+        <div class="search-form">
+          <form class="search" (ngSubmit)="searchJobs(f)" #f="ngForm">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search by job title......" name="query" ngModel
+                #query="ngModel" required>
+              <div class="input-group-append">
+                <button class="btn btn-primary btn-search" type="submit">
+                  Search
+                </button>
+              </div>
+            </div>
+            <p class="text-danger error-block" *ngIf="!query.valid && query.touched"><small>Cannot be empty</small>
+            </p>
+            <p class="text-danger error-block" *ngIf="error"><small>Please enter a search query</small>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="categories">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12 mb-4 mt-4">
+        <h3>Popular Categories</h3>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-12" *ngIf="preloader">
+        <app-preloader></app-preloader>
+      </div>
+    </div>
+    <div class="row text-center" *ngIf="!preloader">
+      <div class="col" *ngFor="let cat of categories">
+        <a routerLink="category/{{cat.id }}">
+          <div class="card">
+            <div class="icon">
+              <i class="{{cat.icon}}"></i>
+            </div>
+            <h4 class="main-color">
+              {{cat.name }}
+            </h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="jobs-list">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12 mb-4 mt-4">
+        <h3>Popular Listed jobs</h3>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-12" *ngIf="preloader">
+        <app-preloader></app-preloader>
+      </div>
+    </div>
+    <div class="row" *ngIf="!preloader">
+      <div class="col-md-12" *ngFor="let job of jobs">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-4 logo">
+                  <h4>J</h4>
+                </div>
+                <div class="col-md-8 pt-3">
+                  <p class="text-muted">
+                    {{job.company_name}}
+                  </p>
+                  <h4>{{job.title}} ({{job.experience}} Year Exp.)</h4>
+                  <div class="row desc">
+                    <div class="col-md-4">
+                      <p><span class="icon"><i class="fa fa-location-arrow"></i></span> {{job.location}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <p><span class="icon"><i class="fa fa-expand"></i></span> {{job.job_type}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <p><span class="icon"><i class="fa fa-money"></i></span> Ksh {{job.salary_range}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 float-right">
+              <a routerLink="/job-details/{{job.id}}/" class="btn view-details">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-12 text-center mb-3">
+        <a routerLink="/" class="btn view-more">
+          View More <i class="fa fa-arrow-right"></i>
+        </a>
+      </div> -->
+    </div>
+  </div>
+</section>

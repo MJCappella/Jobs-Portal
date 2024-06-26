@@ -1,0 +1,63 @@
+<section class="top-header">
+  <div class="row text-center">
+    <div class="col-md-12">
+      <h3>Login</h3>
+    </div>
+  </div>
+</section>
+
+
+<section class="auth">
+  <div class="p-3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-5">
+        <div class="card mt-4 mb-5">
+          <form (ngSubmit)="loginUser(f)" #f="ngForm" method="post">
+            <div class="row">
+              <div class="col-md-12">
+                <div *ngIf="errorMessage" class="alert alert-danger fade show" role="alert">
+                  {{errorMessage}}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="username" class="required">Username</label>
+                  <input type="text" class="form-control" name="username" placeholder="Username" ngModel
+                    #username="ngModel" required>
+                  <p class="text-danger error-block" *ngIf="!username.valid && username.touched"><small>Enter
+                      Username</small></p>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="password" class="required">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="Password" ngModel
+                    #password="ngModel" required>
+                  <p class="text-danger error-block" *ngIf="!password.valid && password.touched"><small>Enter
+                      password</small></p>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <button type="submit" class="btn login" [disabled]="loading || !f.valid">
+                    <span *ngIf="loading">
+                      Loading....
+                    </span>
+                    <span *ngIf="!loading">
+                      Login
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-12 text-center">
+                <div class="form-group">
+                  <p>Not a member? <strong><a class="main-color" routerLink="/register">Register</a></strong></p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
