@@ -7,7 +7,7 @@ Jobs Portal is a website that provides a way to create, update, delete and retri
 ## Setup Requirements
 
 - Git Version Control
-- Web Browser
+- Web Browser - preferably chromium browsers
 - Github - For repository management
 - Angular CLI - V17.x.x
 - Node.js - V20.x.x
