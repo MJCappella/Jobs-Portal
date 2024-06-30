@@ -10,7 +10,7 @@ Jobs Portal is a website that provides a way to create, update, delete and retri
 - Web Browser
 - Github
 - Angular CLI 
-- Node.js
+- Node.js - V20.x.x
 - npm
 
 ## Development server
